@@ -9,12 +9,10 @@ class Form (object):
 
     def __addField (self, field_type, question, description, required):
         new_field = {'type': field_type, 'question': question}
-        if required:
-            new_field['required'] = 'true'
-        else:
-            new_field['required'] = 'false'
+        if required is not None:
+            new_field['required'] = required
                      
-        if description is not None:
+        if description: 
             new_field['description'] = str(description)
 
         return new_field
