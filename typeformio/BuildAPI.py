@@ -3,11 +3,14 @@
 import os
 import requests
 
+from Form import Form
+
 class ApiTokenNotDefinedException (Exception):
     pass
 
 class BuildAPI (object):
     def __init__ (self, api_token=None):
+	self.forms_endpoint = 'https://api.typeform.io/v0.4/forms'
         self.api_token = None
         if api_token:
             self.api_token = api_token
@@ -18,5 +21,8 @@ class BuildAPI (object):
                 raise ApiTokenNotDefinedException
     
     def buildForm (self, form):
-        coding
+        headers = {'X-API-TOKEN': self.api_token}
+        r = requests.post(self.forms_endpoint, headers=headers, json=form.json)
+        print r.status_code
+	print r.json()
 
