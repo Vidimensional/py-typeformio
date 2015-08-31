@@ -1,5 +1,5 @@
 # py-typeformio
-Pythonic library for typeform.io API.
+Pythonic library for typeform.io API (WORK IN PROGRESS).
 
 Example:
 ```python
