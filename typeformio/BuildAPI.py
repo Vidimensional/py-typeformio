@@ -19,10 +19,9 @@ class BuildAPI (object):
                 self.api_token = os.environ['TYPEFORMIO_API_TOKEN']
             except KeyError:
                 raise ApiTokenNotDefinedException
-    
+
+
     def buildForm (self, form):
         headers = {'X-API-TOKEN': self.api_token}
         r = requests.post(self.forms_endpoint, headers=headers, json=form.json)
-        print r.status_code
-	print r.json()
-
+        return r.json()
