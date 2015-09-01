@@ -9,5 +9,9 @@ from typeformio.BuildAPI import BuildAPI
 form = Form('Probando', 'http://vidimensional.es/hooker')
 form.addStatementField('hola ke ase')
 buildapi = BuildAPI("API_TOKEN")
-buildapi.buildForm(form)
+json = buildapi.buildForm(form)
+# Now, do whatever you want this json.
 ```
+
+More documentation:
+http://docs.typeform.io/
