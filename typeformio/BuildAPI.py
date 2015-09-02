@@ -12,6 +12,7 @@ class BuildAPI (object):
     def __init__ (self, api_token=None):
 	self.forms_endpoint = 'https://api.typeform.io/v0.4/forms'
         self.api_token = None
+	self.user_agent = 'py-typeformio'
         if api_token:
             self.api_token = api_token
         else:
@@ -22,6 +23,7 @@ class BuildAPI (object):
 
 
     def buildForm (self, form):
-        headers = {'X-API-TOKEN': self.api_token}
+	headers = {'User-Agent': self.user_agent,
+                   'X-API-TOKEN': self.api_token}
         r = requests.post(self.forms_endpoint, headers=headers, json=form.json)
         return r.json()
