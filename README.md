@@ -14,15 +14,11 @@ form.addLegal('pos te mola?')
 form.addShortTextField('Dime como te llamas?')
 form.addYesNoField('Se ha quedao buena tarde, no?')
 form.addDropdownField('Que prefieres', choices=['manzana', 'platano', 'pomelo'])
-form.addPictureChoiceField('con jake el perro y finn el humano', 
-        choices=[
+form.addPictureChoiceField('con jake el perro y finn el humano', choices=[
             ('https://media.giphy.com/media/FMGubfDOHHnCo/giphy.gif', 'Why no both?'), 
             ('https://media.giphy.com/media/bE5qi2tiSfdZu/giphy.gif', 'Finn el humano'),
-            ('https://media.giphy.com/media/j50v9vd9rbhjG/giphy.gif', 'Jake el perro') ])
-print "sending juanson"
-print json.dumps(form.json, indent=4, separators=(',', ': '))
-pprint.pprint(form.json)
-
+            ('https://media.giphy.com/media/j50v9vd9rbhjG/giphy.gif', 'Jake el perro') ]
+)
 json = form.generateForm()
 ```
 from typeformio.Form import Form
