@@ -37,6 +37,7 @@ class Form (object):
         self.json['fields'].append(new_field)
 
 
+
     def addStatementField (self, question, description=None, required=False):
         new_field = self.__addField('statement', question, description, required)
         self.json['fields'].append(new_field)

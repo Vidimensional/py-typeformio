@@ -4,10 +4,10 @@ from BuildAPI import BuildAPI
 
 class Image (object):
     def __init__ (self, buildapi, image_url):
-        image_endpoint = '/images'
-        json = { 'url': image_url }
-        self.response_json = buildapi.POSTjson(image_endpoint, json)
+        self.image_endpoint = '/images'
+        self.json = { 'url': image_url }
+        self.buildapi = buildapi
 
     def getImageId (self):
-        return self.response_json['id']
+        return self.buildapi.POSTjson(self.image_endpoint, self.json)['id']
 
