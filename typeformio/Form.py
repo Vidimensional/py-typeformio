@@ -2,7 +2,7 @@
 from Image import Image
 
 class Form (object):
-    def __init__ (self, title, webhook_submit_url, buildapi, design_id=None):
+    def __init__ (self, buildapi, title, webhook_submit_url, design_id=None):
         self.form_endpoint = '/forms'
         self.buildapi = buildapi
         self.json = {'title': title, 'webhook_submit_url': webhook_submit_url,'fields': []}
@@ -56,7 +56,7 @@ class Form (object):
         new_field = self.__addField('picture_choice', question, description, required)
         choices_object = []
         for elem in choices:
-            image_id = Image(elem[0], self.buildapi).getImageId()
+            image_id = Image(self.buildapi, elem[0]).getImageId()
             label = elem[1]
             choices_object.append({ 'image_id': image_id,
                                     'label': label })

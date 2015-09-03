@@ -8,7 +8,7 @@ from typeformio.BuildAPI import BuildAPI
 
 buildapi = BuildAPI()
 
-form = Form('Test form', 'http://domain.tld/hook', buildapi)
+form = Form('Test form', buildapi, 'http://domain.tld/hook')
 form.addStatementField('hola ke ase')
 form.addLegal('pos te mola?')
 form.addShortTextField('Dime como te llamas?')
