@@ -10,51 +10,58 @@ class Form (object):
             self.json['design_id'] = design_id
 
 
-    def __addField (self, field_type, question, description, required):
-        new_field = {'type': field_type, 'question': question}
-        #if required is not None:
-        #    new_field['required'] = bool(required)
+    def formField (fieldMethod):
 
-        if description:
-            new_field['description'] = str(description)
+        def addField (self, question, description=None, required=None, **field_args):
+            new_field = {'question': question}
+            if description:
+                new_field['description'] = str(description)
+            if required is not None:
+                new_field['required'] = bool(required)
+            new_field.update( fieldMethod(self, question, description, required, **field_args) )
+            self.json['fields'].append(new_field)
 
+        return addField
+
+
+    @formField
+    def addShortTextField (self, question, description=None, required=False,
+                           max_characters=None):
+        new_field = {'type': 'short_text'}
+        if max_characters is not None:
+            new_field['max_characters'] = str(max_characters)
         return new_field
 
 
-    def addShortTextField (self, question, description=None, required=False,
-                           max_characters=None):
-        new_field = self.__addField('short_text', question, description, required)
-        if max_characters is not None:
-            new_field['max_characters'] = str(max_characters)
-        self.json['fields'].append(new_field)
-
-
+    @formField
     def addLongTextField (self, question, description=None, required=False,
                           max_characters=None):
-        new_field = self.__addField('long_text', question, description, required)
+        new_field = {'type': 'long_text'}
         if max_characters is not None:
             new_field['max_characters'] = str(max_characters)
-        self.json['fields'].append(new_field)
+        return new_field
 
 
-
+    @formField
     def addStatementField (self, question, description=None, required=False):
-        new_field = self.__addField('statement', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'statement'}
+        return new_field
 
 
+    @formField
     def addMultipleChoiceField (self, question, description=None, required=False,
                                 choices=[]):
-        new_field = self.__addField('multiple_choice', question, description, required)
+        new_field = {'type': 'multiple_choice'}
         choices_object = [ { 'label': elem } for elem in choices ]
         new_field['choices'] = choices_object
-        self.json['fields'].append(new_field)
+        return new_field
 
 
+    @formField
     def addPictureChoiceField (self, question, description=None, required=False,
                                choices=[]):
         # Choices must be an array of tuples like '(image_url, image_label)'
-        new_field = self.__addField('picture_choice', question, description, required)
+        new_field = {'type': 'picture_choice'}
         choices_object = []
         for elem in choices:
             image_id = Image(self.buildapi, elem[0]).getImageId()
@@ -62,50 +69,58 @@ class Form (object):
             choices_object.append({ 'image_id': image_id,
                                     'label': label })
         new_field['choices'] = choices_object
-        self.json['fields'].append(new_field)
+        return new_field
 
 
+    @formField
     def addDropdownField (self, question, description=None, required=False,
                           choices=[]):
-        new_field = self.__addField('dropdown', question, description, required)
+        new_field = {'type': 'dropdown'}
         choices_object = [ { 'label': elem } for elem in choices ]
         new_field['choices'] = choices_object
-        self.json['fields'].append(new_field)
+        return new_field
 
 
+    @formField
     def addYesNoField (self, question, description=None, required=False):
-        new_field = self.__addField('yes_no', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'yes_no'}
+        return new_field
 
 
+    @formField
     def addNumberField (self, question, description=None, required=False):
-        new_field = self.__addField('number', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'number'}
+        return new_field
 
 
+    @formField
     def addRatingField (self, question, description=None, required=False):
-        new_field = self.__addField('rating', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'rating'}
+        return new_field
 
 
+    @formField
     def addOpinionScaleField (self, question, description=None, required=False):
-        new_field = self.__addField('opinion_scale', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'opinion_scale'}
+        return new_field
 
 
+    @formField
     def addEmailField (self, question, description=None, required=False):
-        new_field = self.__addField('email', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'email'}
+        return new_field
 
 
+    @formField
     def addWebsiteField (self, question, description=None, required=False):
-        new_field = self.__addField('website', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'website'}
+        return new_field
 
 
+    @formField
     def addLegal (self, question, description=None, required=False):
-        new_field = self.__addField('legal', question, description, required)
-        self.json['fields'].append(new_field)
+        new_field = {'type': 'legal'}
+        return new_field
 
 
     def generateForm (self):
