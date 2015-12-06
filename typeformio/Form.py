@@ -12,12 +12,14 @@ class Form (object):
 
     def formField (fieldMethod):
 
-        def addField (self, question, description=None, required=None, **field_args):
+        def addField (self, question, description=None, required=None, ref=None, **field_args):
             new_field = {'question': question}
             if description:
                 new_field['description'] = str(description)
-            if required is not None:
+            if required:
                 new_field['required'] = bool(required)
+            if ref:
+                new_field['ref'] = ref
             new_field.update( fieldMethod(self, question, description, required, **field_args) )
             self.json['fields'].append(new_field)
 
@@ -26,7 +28,7 @@ class Form (object):
 
     @formField
     def addShortTextField (self, question, description=None, required=False,
-                           max_characters=None):
+                           max_characters=None, ref=None):
         new_field = {'type': 'short_text'}
         if max_characters is not None:
             new_field['max_characters'] = str(max_characters)
@@ -35,7 +37,7 @@ class Form (object):
 
     @formField
     def addLongTextField (self, question, description=None, required=False,
-                          max_characters=None):
+                          max_characters=None, ref=None):
         new_field = {'type': 'long_text'}
         if max_characters is not None:
             new_field['max_characters'] = str(max_characters)
@@ -43,14 +45,14 @@ class Form (object):
 
 
     @formField
-    def addStatementField (self, question, description=None, required=False):
+    def addStatementField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'statement'}
         return new_field
 
 
     @formField
     def addMultipleChoiceField (self, question, description=None, required=False,
-                                choices=[]):
+                                choices=[], ref=None):
         new_field = {'type': 'multiple_choice'}
         choices_object = [ { 'label': elem } for elem in choices ]
         new_field['choices'] = choices_object
@@ -59,7 +61,7 @@ class Form (object):
 
     @formField
     def addPictureChoiceField (self, question, description=None, required=False,
-                               choices=[]):
+                               choices=[], ref=None):
         # Choices must be an array of tuples like '(image_url, image_label)'
         new_field = {'type': 'picture_choice'}
         choices_object = []
@@ -74,7 +76,7 @@ class Form (object):
 
     @formField
     def addDropdownField (self, question, description=None, required=False,
-                          choices=[]):
+                          choices=[], ref=None):
         new_field = {'type': 'dropdown'}
         choices_object = [ { 'label': elem } for elem in choices ]
         new_field['choices'] = choices_object
@@ -82,46 +84,56 @@ class Form (object):
 
 
     @formField
-    def addYesNoField (self, question, description=None, required=False):
+    def addYesNoField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'yes_no'}
         return new_field
 
 
     @formField
-    def addNumberField (self, question, description=None, required=False):
+    def addNumberField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'number'}
         return new_field
 
 
     @formField
-    def addRatingField (self, question, description=None, required=False):
+    def addRatingField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'rating'}
         return new_field
 
 
     @formField
-    def addOpinionScaleField (self, question, description=None, required=False):
+    def addOpinionScaleField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'opinion_scale'}
         return new_field
 
 
     @formField
-    def addEmailField (self, question, description=None, required=False):
+    def addEmailField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'email'}
         return new_field
 
 
     @formField
-    def addWebsiteField (self, question, description=None, required=False):
+    def addWebsiteField (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'website'}
         return new_field
 
 
     @formField
-    def addLegal (self, question, description=None, required=False):
+    def addLegal (self, question, description=None, required=False, ref=None):
         new_field = {'type': 'legal'}
         return new_field
 
+    def addLogicJump(self, origin, status, destionation):
+        if not self.json.get('logic_jumps', None):
+            self.json['logic_jumps'] = []
+
+        conditionField = {'if': status,
+                          'from': origin,
+                          'to': destionation}
+
+        self.json['logic_jumps'].append(conditionField)
+        return True
 
     def generateForm (self):
         return self.buildapi.POSTjson(self.form_endpoint, self.json)
