@@ -61,6 +61,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
 | `max_characters` | The maximum number of characters the respondent can type as an answer.                            | -       | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Long text
@@ -69,6 +70,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Statement
@@ -78,6 +80,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
 | `choices`        | Array of choice objects with the choices that the respondent can select                           | []      | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Multiple choice
@@ -87,6 +90,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
 | `choices`        | Array of choice objects with the choices that the respondent can select.                          | []      | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Picture choice
@@ -96,6 +100,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
 | `choices`        | Array of choice objects with the choices that the respondent can select                           | []      | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Dropdown
@@ -105,6 +110,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
 | `choices`        | Array of choice objects with the choices that the respondent can select.                          | []      | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Yes/No
@@ -113,6 +119,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Image
@@ -121,6 +128,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Rating
@@ -129,6 +137,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Opinion scale
@@ -137,6 +146,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Email
@@ -145,6 +155,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Website
@@ -153,6 +164,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             |  -      | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 #### Legal
@@ -161,6 +173,7 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 | `question`       | The main question text for the field.                                                             |  -      | Yes      |
 | `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
 | `required`       | Decides if the field is mandatory.                                                                | False   | No       |
+| `tags`           | An array of tags as strings.                                                                      | []      |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 
