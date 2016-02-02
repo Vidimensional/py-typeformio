@@ -7,7 +7,7 @@ class ApiTokenNotDefinedException (Exception):
     pass
 
 class BuildAPI (object):
-    def __init__ (self, api_token=None, user_agent='pyformio'):
+    def __init__ (self, api_token=None, user_agent='py-typeformio'):
         self.api_token = None
         self.user_agent = user_agent
         if api_token:
