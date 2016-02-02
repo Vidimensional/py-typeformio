@@ -55,18 +55,113 @@ This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 
 ### Available fields
 #### Short text
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `max_characters` | The maximum number of characters the respondent can type as an answer. |         | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Long text
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Statement
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select | []      | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Multiple choice
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select | []      | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Picture choice
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select | []      | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Dropdown
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select | []      | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Yes/No
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Image
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Rating
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Opinion scale
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Email
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Website
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
+
 #### Legal
+| Argument         | Description                          | Default | Required |
+| :--------------: | ------------------------------------ | ------- | -------- |
+| `question`       | The main question text for the field |  -      | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.   | False   | No       |
+| `ref`            | A unique reference for the field.    | -       | No       |
 
 
 ###More documentation:
