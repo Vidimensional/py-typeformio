@@ -22,7 +22,7 @@ from typeformio.Design import Design
 from typeformio.Form import Form
 from typeformio.BuildAPI import BuildAPI
 
-buildapi = BuildAPI()
+buildapi = BuildAPI(user_agent='My Awesome app')
 
 design = Design(buildapi)
 design.colors['question'] = '#FFFFFF'
@@ -52,6 +52,14 @@ json_response = form.generateForm()
 ```
 
 This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
+
+###Your own user agent.
+You can define your own user agent when initialize BuildAPI.
+```python
+(...)
+buildapi = BuildAPI(user_agent='My Awesome app')
+(...)
+```
 
 ### Available fields
 #### Short text
