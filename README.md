@@ -1,6 +1,26 @@
 # py-typeformio
 Pythonic library for [typeform.io](http://typeform.io/) API (WORK IN PROGRESS).
 
+- [Usage](#usage)
+	- [Authentication](#authentication)
+	- [Basic example](#basic-example)
+	- [Your own user agent](#your-own-user-agent)
+- [Available fields](#available-fields)
+	- [Short text](#short-text)
+	- [Long text](#long-text)
+	- [Statement](#statement)
+	- [Multiple choice](#multiple-choice)
+	- [Picture choice](#picture-choice)
+	- [Dropdown](#dropdown)
+	- [Yes/No](#yes/no)
+	- [Image](#image)
+	- [Rating](#rating)
+	- [Opinion scale](#opinion-scale)
+	- [Email](#email)
+	- [Website](#website)
+	- [Legal](#legal)
+- [More documentation](#more-documentation)
+
 ##Usage
 ###Authentication
 First you'll need an API Key, [you can get yours here](http://docs.typeform.io/v0.4/page/signup).
@@ -53,7 +73,7 @@ json_response = form.generateForm()
 
 This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 
-###Your own user agent.
+###Your own user agent
 You can define your own user agent when initialize BuildAPI.
 ```python
 (...)
@@ -61,8 +81,8 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 (...)
 ```
 
-### Available fields
-#### Short text
+## Available fields
+### Short text
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -72,7 +92,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Long text
+### Long text
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -81,27 +101,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Statement
-| Argument         | Description                                                                                       | Default | Required |
-| :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
-| `question`       | The main question text for the field.                                                             | -       | Yes      |
-| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
-| `required`       | Decides if the field is mandatory.                                                                | `False` | No       |
-| `choices`        | Array of choice objects with the choices that the respondent can select                           | `[]`    | No       |
-| `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
-| `ref`            | A unique reference for the field.                                                                 | -       | No       |
-
-#### Multiple choice
-| Argument         | Description                                                                                       | Default | Required |
-| :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
-| `question`       | The main question text for the field.                                                             | -       | Yes      |
-| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
-| `required`       | Decides if the field is mandatory.                                                                | `False` | No       |
-| `choices`        | Array of choice objects with the choices that the respondent can select.                          | `[]`    | No       |
-| `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
-| `ref`            | A unique reference for the field.                                                                 | -       | No       |
-
-#### Picture choice
+### Statement
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -111,7 +111,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Dropdown
+### Multiple choice
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -121,7 +121,27 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Yes/No
+### Picture choice
+| Argument         | Description                                                                                       | Default | Required |
+| :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
+| `question`       | The main question text for the field.                                                             | -       | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.                                                                | `False` | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select                           | `[]`    | No       |
+| `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
+| `ref`            | A unique reference for the field.                                                                 | -       | No       |
+
+### Dropdown
+| Argument         | Description                                                                                       | Default | Required |
+| :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
+| `question`       | The main question text for the field.                                                             | -       | Yes      |
+| `description`    | The description (or sub-text) that appears below the main question text (in a smaller font size). | -       | No       |
+| `required`       | Decides if the field is mandatory.                                                                | `False` | No       |
+| `choices`        | Array of choice objects with the choices that the respondent can select.                          | `[]`    | No       |
+| `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
+| `ref`            | A unique reference for the field.                                                                 | -       | No       |
+
+### Yes/No
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -130,7 +150,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Image
+### Image
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -139,7 +159,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Rating
+### Rating
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -148,7 +168,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Opinion scale
+### Opinion scale
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -157,7 +177,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Email
+### Email
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -       | Yes      |
@@ -166,7 +186,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Website
+### Website
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -      | Yes      |
@@ -175,7 +195,7 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `tags`           | An array of tags as strings.                                                                      | `[]`    |          |
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
-#### Legal
+### Legal
 | Argument         | Description                                                                                       | Default | Required |
 | :--------------: | ------------------------------------------------------------------------------------------------- | ------- | -------- |
 | `question`       | The main question text for the field.                                                             | -      | Yes      |
@@ -185,5 +205,5 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 
-###More documentation:
+##More documentation
 http://docs.typeform.io/
