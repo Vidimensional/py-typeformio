@@ -1,5 +1,7 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 # py-typeformio
-Pythonic library for [typeform.io](http://typeform.io/) API (WORK IN PROGRESS).
+Pythonic library for [typeform.io](http://typeform.io/) API.
 
 - [Usage](#usage)
 	- [Authentication](#authentication)
@@ -21,8 +23,8 @@ Pythonic library for [typeform.io](http://typeform.io/) API (WORK IN PROGRESS).
 	- [Legal](#legal)
 - [More documentation](#more-documentation)
 
-##Usage
-###Authentication
+## Usage
+### Authentication
 First you'll need an API Key, [you can get yours here](http://docs.typeform.io/v0.4/page/signup).
 
 Then you just have to define put it on a env variable called ``TYPEFORMIO_API_TOKEN`` and py-typeformio will use it.
@@ -73,7 +75,7 @@ json_response = form.generateForm()
 
 This will generate a form [like this](https://forms.typeform.io/to/45dVbNDTrB).
 
-###Your own user agent
+### Your own user agent
 You can define your own user agent when initialize BuildAPI.
 ```python
 (...)
@@ -205,5 +207,5 @@ buildapi = BuildAPI(user_agent='My Awesome app')
 | `ref`            | A unique reference for the field.                                                                 | -       | No       |
 
 
-##More documentation
+## More documentation
 http://docs.typeform.io/
